@@ -7,16 +7,26 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 from tkinter import PhotoImage
 
+# window
 window = tkinter.Tk()
 window.title("FINDING THE BIGGEST NUMBER")
-window.geometry('925x500+300+200')
+window.geometry('500x500+300+200')
 window.wm_resizable(False,False)
 
 image_path=PhotoImage(file=r"C:\BsCpE 1st Year\Programming Logic and Design\Python Projects\Assignment #4\finding_highest_number\Background_for_python.png")
 bg_image=tkinter.Label(window,image=image_path)
 bg_image.place(relheight=1, relwidth=1)
 
-# Ask for name
+# greetings
+frame_heading=tkinter.Frame(window,width=462,height=80,bg='#97FFFF')
+frame_heading.place(x=20,y=20)
+
+greetings=tkinter.Label(frame_heading,text="GOOD DAY!!", fg="#000000",bg='#97FFFF',font=('Georgia',18,'bold'))
+greetings.place(x=150,y=10)
+
+heading=tkinter.Label(frame_heading,text="FINDING THE HIGHEST NUMBER", fg="#000000",bg='#97FFFF',font=('ARIAL',21,'bold'))
+heading.place(x=7,y=40)
+
 # Input 3 numbers
 # finding the highest number
 
