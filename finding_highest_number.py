@@ -24,6 +24,9 @@ def enter():
     except ValueError:
         messagebox.showwarning("Error", "Please enter a valid number.")
 
+def cancel():
+    window.destroy()
+
 # window
 window = tkinter.Tk()
 window.title("FINDING THE BIGGEST NUMBER")
@@ -56,11 +59,12 @@ def on_enter(e):
     input_one.delete(0,'end')
 def on_leave(e):
     if input_one.get()=='':
-        input_one.insert(0,' Please input 1st number')
+        input_one.insert(0,' Input 1st number')
+
 
 input_one = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_one.place(x=20,y=200)
-input_one.insert(2,  ' Please input 1st number')
+input_one.insert(2,  ' Input 1st number')
 input_one.bind("<FocusIn>",on_enter)
 input_one.bind("<FocusOut>",on_leave)
 
@@ -69,11 +73,11 @@ def on_enter(e):
     input_two.delete(0,'end')
 def on_leave(e):
     if input_two.get()=='':
-        input_two.insert(0,' Please input 2nd number')
+        input_two.insert(0,' Input 2nd number')
 
 input_two = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_two.place(x=20,y=270)
-input_two.insert(2,  ' Please input 2nd number')
+input_two.insert(2,  ' Input 2nd number')
 input_two.bind("<FocusIn>",on_enter)
 input_two.bind("<FocusOut>",on_leave)
 
@@ -82,19 +86,21 @@ def on_enter(e):
     input_three.delete(0,'end')
 def on_leave(e):
     if input_three.get()=='':
-        input_three.insert(0,' Please input 3rd number')
+        input_three.insert(0,' Input 3rd number')
 
 input_three = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_three.place(x=20,y=340)
-input_three.insert(2,  ' Please input 3rd number')
+input_three.insert(2,  ' Input 3rd number')
 input_three.bind("<FocusIn>",on_enter)
 input_three.bind("<FocusOut>",on_leave)
 
-button = tkinter.Button(window,width=62, text="Submit", command=enter, font='Arial, 11', fg='#DCDCDC')
-button.place(x=20, y=395)
-button.configure(bg='#1A1A1A')
+submit_button = tkinter.Button(window,width=62, text="Submit", command=enter, font='Arial, 11', fg='#DCDCDC')
+submit_button.place(x=20, y=395)
+submit_button.configure(bg='#1A1A1A')
 
-
+cancel_button = tkinter.Button(window,width=62, text="Cancel", command=cancel, font='Arial, 11', fg='#000000')
+cancel_button.place(x=20, y=435)
+cancel_button.configure(bg='#F0F8FF')
 
 
 window.mainloop()
