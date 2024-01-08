@@ -20,7 +20,7 @@ def enter():
         else:
                 result= input3
         
-        print("The highest number", result)
+        print("The highest number:", result)
     except ValueError:
         messagebox.showwarning("Error", "Please enter a valid number.")
 
@@ -38,11 +38,11 @@ bg_image.place(relheight=1, relwidth=1)
 frame_heading=tkinter.Frame(window,width=562,height=94,bg='#97FFFF')
 frame_heading.place(x=20,y=20)
 
-greetings=tkinter.Label(frame_heading,text="GOOD DAY!!", fg="#000000",bg='#97FFFF',font=('Helvetica',18,'bold'))
-greetings.place(x=205,y=10)
+greetings=tkinter.Label(frame_heading,text="HELLO THERE", fg="#000000",bg='#97FFFF',font=('Helvetica',18,'bold'))
+greetings.place(x=198,y=9)
 
 heading=tkinter.Label(frame_heading,text="LET US FIND THE BIGGEST NUMBER", fg="#000000",bg='#97FFFF',font=('impact',31))
-heading.place(x=11,y=40)
+heading.place(x=11,y=35)
 
 # note
 frame_note=tkinter.Frame(window,width=562,height=50,bg='#97FFFF')
@@ -56,11 +56,11 @@ def on_enter(e):
     input_one.delete(0,'end')
 def on_leave(e):
     if input_one.get()=='':
-        input_one.insert(0,' INPUT 1')
+        input_one.insert(0,' Please input 1st number')
 
 input_one = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_one.place(x=20,y=200)
-input_one.insert(2,  ' INPUT 1')
+input_one.insert(2,  ' Please input 1st number')
 input_one.bind("<FocusIn>",on_enter)
 input_one.bind("<FocusOut>",on_leave)
 
@@ -69,11 +69,11 @@ def on_enter(e):
     input_two.delete(0,'end')
 def on_leave(e):
     if input_two.get()=='':
-        input_two.insert(0,' INPUT 2')
+        input_two.insert(0,' Please input 2nd number')
 
 input_two = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_two.place(x=20,y=270)
-input_two.insert(2,  ' INPUT 2')
+input_two.insert(2,  ' Please input 2nd number')
 input_two.bind("<FocusIn>",on_enter)
 input_two.bind("<FocusOut>",on_leave)
 
@@ -82,16 +82,16 @@ def on_enter(e):
     input_three.delete(0,'end')
 def on_leave(e):
     if input_three.get()=='':
-        input_three.insert(0,' INPUT 3')
+        input_three.insert(0,' Please input 3rd number')
 
 input_three = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
 input_three.place(x=20,y=340)
-input_three.insert(2,  ' INPUT 3')
+input_three.insert(2,  ' Please input 3rd number')
 input_three.bind("<FocusIn>",on_enter)
 input_three.bind("<FocusOut>",on_leave)
 
 button = tkinter.Button(window,width=62, text="Submit", command=enter, font='Arial, 11', fg='#DCDCDC')
-button.place(x=20, y=390)
+button.place(x=20, y=395)
 button.configure(bg='#1A1A1A')
 
 
