@@ -9,9 +9,9 @@ from tkinter import PhotoImage, messagebox
 
 def enter():
     try:
-        input1 = float(input_one.get())
-        input2 = float(input_two.get())
-        input3 = float(input_three.get())
+        input1 = str(input_one.get())
+        input2 = str(input_two.get())
+        input3 = str(input_three.get())
     
         if input1 > input2 and input1 > input3:
             result = input1
@@ -20,7 +20,10 @@ def enter():
         else:
                 result= input3
         
-        print("The highest number:", result)
+        result_final = tkinter.Label(frame_result,text=result, fg="#000000",bg='#00EEEE',font=('Helvetica',70,'bold'))
+        result_final.place(x=200, y=20)
+
+    
     except ValueError:
         messagebox.showwarning("Error", "Please enter a valid number.")
 
@@ -30,7 +33,7 @@ def cancel():
 # window
 window = tkinter.Tk()
 window.title("FINDING THE BIGGEST NUMBER")
-window.geometry('604x550+300+200')
+window.geometry('604x604+200+100')
 window.wm_resizable(False,False)
 
 image_path=PhotoImage(file=r"C:\BsCpE 1st Year\Programming Logic and Design\Python Projects\Assignment #4\finding_highest_number\Background_for_python.png")
@@ -61,10 +64,9 @@ def on_leave(e):
     if input_one.get()=='':
         input_one.insert(0,' Input 1st number')
 
-
 input_one = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
-input_one.place(x=20,y=200)
-input_one.insert(2,  ' Input 1st number')
+input_one.place(x=20,y=198)
+input_one.insert(0,  ' Input 1st number')
 input_one.bind("<FocusIn>",on_enter)
 input_one.bind("<FocusOut>",on_leave)
 
@@ -76,8 +78,8 @@ def on_leave(e):
         input_two.insert(0,' Input 2nd number')
 
 input_two = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
-input_two.place(x=20,y=270)
-input_two.insert(2,  ' Input 2nd number')
+input_two.place(x=20,y=258)
+input_two.insert(0,  ' Input 2nd number')
 input_two.bind("<FocusIn>",on_enter)
 input_two.bind("<FocusOut>",on_leave)
 
@@ -89,18 +91,22 @@ def on_leave(e):
         input_three.insert(0,' Input 3rd number')
 
 input_three = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
-input_three.place(x=20,y=340)
-input_three.insert(2,  ' Input 3rd number')
+input_three.place(x=20,y=318)
+input_three.insert(0,  ' Input 3rd number')
 input_three.bind("<FocusIn>",on_enter)
 input_three.bind("<FocusOut>",on_leave)
 
 submit_button = tkinter.Button(window,width=62, text="Submit", command=enter, font='Arial, 11', fg='#DCDCDC')
-submit_button.place(x=20, y=395)
+submit_button.place(x=20, y=375)
 submit_button.configure(bg='#1A1A1A')
 
 cancel_button = tkinter.Button(window,width=62, text="Cancel", command=cancel, font='Arial, 11', fg='#000000')
-cancel_button.place(x=20, y=435)
+cancel_button.place(x=20, y=415)
 cancel_button.configure(bg='#F0F8FF')
+
+frame_result=tkinter.Frame(window,width=567,height=125,bg='#00EEEE')
+frame_result.place(x=20,y=458)
+
 
 
 window.mainloop()
