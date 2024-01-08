@@ -9,9 +9,9 @@ from tkinter import PhotoImage, messagebox
 
 def enter():
     try:
-        input1 = str(input_one.get())
-        input2 = str(input_two.get())
-        input3 = str(input_three.get())
+        input1 = float(input_one.get())
+        input2 = float(input_two.get())
+        input3 = float(input_three.get())
     
         if input1 > input2 and input1 > input3:
             result = input1
@@ -20,8 +20,9 @@ def enter():
         else:
                 result= input3
         
-        result_final = tkinter.Label(frame_result,text=result, fg="#000000",bg='#00EEEE',font=('Helvetica',70,'bold'))
-        result_final.place(x=200, y=20)
+        
+        result_final = tkinter.Label(frame_result,text=result, fg="#000000",bg='#00EEEE',font=('Helvetica',65,'bold'))
+        result_final.place(x=200, y=31)
 
     
     except ValueError:
@@ -107,6 +108,8 @@ cancel_button.configure(bg='#F0F8FF')
 frame_result=tkinter.Frame(window,width=567,height=125,bg='#00EEEE')
 frame_result.place(x=20,y=458)
 
+result_label = tkinter.Label(frame_result,text="RESULT", fg="#000000",bg='#00EEEE',font=('Helvetica',20,'bold'))
+result_label.place(x=228,y=3)
 
 
 window.mainloop()
