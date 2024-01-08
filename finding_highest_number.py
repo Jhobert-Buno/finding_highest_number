@@ -5,7 +5,24 @@
 import tkinter
 from tkinter import ttk
 from PIL import ImageTk, Image
-from tkinter import PhotoImage
+from tkinter import PhotoImage, messagebox
+
+def enter():
+    try:
+        input1 = float(input_one.get())
+        input2 = float(input_two.get())
+        input3 = float(input_three.get())
+    
+        if input1 > input2 and input1 > input3:
+            result = input1
+        elif input2 > input1 and input2 > input3 :
+            result = input2
+        else:
+                result= input3
+        
+        print("The highest number", result)
+    except ValueError:
+        messagebox.showwarning("Error", "Please enter a valid number.")
 
 # window
 window = tkinter.Tk()
@@ -21,8 +38,8 @@ bg_image.place(relheight=1, relwidth=1)
 frame_heading=tkinter.Frame(window,width=562,height=94,bg='#97FFFF')
 frame_heading.place(x=20,y=20)
 
-greetings=tkinter.Label(frame_heading,text="GOOD DAY!!", fg="#000000",bg='#97FFFF',font=('Georgia',18,'bold'))
-greetings.place(x=150,y=10)
+greetings=tkinter.Label(frame_heading,text="GOOD DAY!!", fg="#000000",bg='#97FFFF',font=('Helvetica',18,'bold'))
+greetings.place(x=205,y=10)
 
 heading=tkinter.Label(frame_heading,text="LET US FIND THE BIGGEST NUMBER", fg="#000000",bg='#97FFFF',font=('impact',31))
 heading.place(x=11,y=40)
@@ -31,19 +48,19 @@ heading.place(x=11,y=40)
 frame_note=tkinter.Frame(window,width=562,height=50,bg='#97FFFF')
 frame_note.place(x=20,y=120)
 
-note=tkinter.Label(frame_note,text="PLEASE INPUT A NUMBER", fg="#000000",bg='#97FFFF',font=('Helvetica',18,'bold'))
-note.place(x=95,y=10)
+note=tkinter.Label(frame_note,text="PLEASE INPUT A NUMBER", fg="#000000",bg='#97FFFF',font=('Helvetica',20,'bold'))
+note.place(x=110,y=8)
 
 # input 1
 def on_enter(e):
     input_one.delete(0,'end')
 def on_leave(e):
     if input_one.get()=='':
-        input_one.insert(0,'INPUT 1')
+        input_one.insert(0,' INPUT 1')
 
-input_one = tkinter.Entry(window,width=37,fg='black',border=0,bg='#97FFFF',font=('Microsoft Yahei UI Light',20))
-input_one.place(x=30,y=200)
-input_one.insert(0,  'INPUT 1')
+input_one = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
+input_one.place(x=20,y=200)
+input_one.insert(2,  ' INPUT 1')
 input_one.bind("<FocusIn>",on_enter)
 input_one.bind("<FocusOut>",on_leave)
 
@@ -52,11 +69,11 @@ def on_enter(e):
     input_two.delete(0,'end')
 def on_leave(e):
     if input_two.get()=='':
-        input_two.insert(0,'INPUT 2')
+        input_two.insert(0,' INPUT 2')
 
-input_two = tkinter.Entry(window,width=37,fg='black',border=0,bg='#97FFFF',font=('Microsoft Yahei UI Light',20))
-input_two.place(x=30,y=270)
-input_two.insert(0,  'INPUT 2')
+input_two = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
+input_two.place(x=20,y=270)
+input_two.insert(2,  ' INPUT 2')
 input_two.bind("<FocusIn>",on_enter)
 input_two.bind("<FocusOut>",on_leave)
 
@@ -65,28 +82,19 @@ def on_enter(e):
     input_three.delete(0,'end')
 def on_leave(e):
     if input_three.get()=='':
-        input_three.insert(0,'INPUT 3')
+        input_three.insert(0,' INPUT 3')
 
-input_three = tkinter.Entry(window,width=37,fg='black',border=0,bg='#97FFFF',font=('Microsoft Yahei UI Light',20))
-input_three.place(x=30,y=340)
-input_three.insert(0,  'INPUT 3')
+input_three = tkinter.Entry(window,width=35,fg='black',border=2,bg='#97FFFF',font=('Microsoft Yahei UI Light',20,'bold'))
+input_three.place(x=20,y=340)
+input_three.insert(2,  ' INPUT 3')
 input_three.bind("<FocusIn>",on_enter)
 input_three.bind("<FocusOut>",on_leave)
 
-# Input 3 numbers
-# num1=int(input("Enter number 1: "))
-# num2=int(input("Enter number 2: "))
-# num3=int(input("Enter number 3: "))
+button = tkinter.Button(window,width=62, text="Submit", command=enter, font='Arial, 11', fg='#DCDCDC')
+button.place(x=20, y=390)
+button.configure(bg='#1A1A1A')
 
-# # finding the highest number
-# if num1 > num2 and num1 > num3:
-#     result = num1
-# elif num2 > num1 and num2 > num3 :
-#     result = num2
-# else:
-#     result= num3
 
-# print("The highest number", result)
 
-#23
+
 window.mainloop()
